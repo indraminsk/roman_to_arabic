@@ -1,1 +1,1 @@
-curl -d "@testdata/roman.json" -X POST "127.0.0.1:9080"
+curl -X POST "127.0.0.1:9080" -H "Content-Type: application/json" -d '{"numeral": "M"}'
