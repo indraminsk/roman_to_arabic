@@ -8,36 +8,18 @@ func Convert(roman string) (arabic int) {
 	var (
 		ok bool
 
-		arabicNumeralBy RomanArabicPairsType
+		romanArabicPairs RomanArabicPairsType
 	)
 
-	arabicNumeralBy = buildRomanArabicNumeralPairs()
+	romanArabicPairs = RomanArabicPairsType{
+		"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6, "VII": 7, "VIII": 8, "IX": 9,
+		"X": 10, "L": 50, "C": 100, "D": 500, "M": 1000,
+	}
 
-	arabic, ok = arabicNumeralBy[strings.ToUpper(roman)]
+	arabic, ok = romanArabicPairs[strings.ToUpper(roman)]
 	if !ok {
 		return 0
 	}
 
 	return arabic
-}
-
-func buildRomanArabicNumeralPairs() (pairs RomanArabicPairsType) {
-	pairs = make(RomanArabicPairsType)
-
-	pairs["I"] = 1
-	pairs["II"] = 2
-	pairs["III"] = 3
-	pairs["IV"] = 4
-	pairs["V"] = 5
-	pairs["VI"] = 6
-	pairs["VII"] = 7
-	pairs["VIII"] = 8
-	pairs["IX"] = 9
-	pairs["X"] = 10
-	pairs["L"] = 50
-	pairs["C"] = 100
-	pairs["D"] = 500
-	pairs["M"] = 1000
-
-	return pairs
 }
