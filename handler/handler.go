@@ -58,7 +58,7 @@ func (server *ServerType) Handler(w http.ResponseWriter, r *http.Request) {
 
 	// convert numeral from roman to arabic
 	arabicNumeral = converter.Convert(romanInput.Numeral)
-	if arabicNumeral < 0 {
+	if arabicNumeral == 0 {
 		fmt.Println("[error] numeral conversion failed")
 		http.Error(w, "error", http.StatusInternalServerError)
 
@@ -68,7 +68,7 @@ func (server *ServerType) Handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("arabic numeral:", arabicNumeral)
 
 	// prepare response
-	w.WriteHeader(http.StatusCreated)
+	w.WriteHeader(http.StatusOK)
 
 	_, err = w.Write([]byte(fmt.Sprintf("%d", arabicNumeral)))
 	if err != nil {
