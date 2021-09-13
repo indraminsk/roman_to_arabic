@@ -1,15 +1,16 @@
-1. run http server:
+1. download an executable file.
 
-    a. if you have source files and don't want to build an executable file use next bash call in a folder with source code:
+2. run http server by bash call
     
-        `clear; go run *.go`
-        
-    b. if you have an executable file use next bash call in a folder with an executable file:
+    `clear; ./rtoacm` (for mac os, by default will be use port 9080)
     
-        `clear; ./rtoacm` – for mac os
-        `clear; ./rtoacl` – for linux (arm64)
+    `clear; ./rtoacm -p=8080` (for mac os, will be use port 8080, it means that you can use any available port to run server)
+    
+    `clear; ./rtoacl` – for linux (arm64, by default will be use port 9080)
+    
+    `clear; ./rtoacl -p=8080` – for linux (arm64, will be use port 8080, it means that you can use any available port to run server)
              
-2. make request to http server
+3. make request to http server by bash call:
 
     `curl -X POST "127.0.0.1:9080" -H "Content-Type: application/json" -d '{"numeral": "M"}'`
     
